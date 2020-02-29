@@ -697,6 +697,7 @@ class CellularIoTApp(CellularIoT):
 		GPIO.setup(self.USER_BUTTON, GPIO.IN)
 		GPIO.setup(self.USER_LED, GPIO.OUT)
 		GPIO.setup(self.OPTO1, GPIO.IN)
+		GPIO.setup(self.OPTO2, GPIO.IN)
 		
 	# Function for enable BG96 module
 	def enable(self):
@@ -746,8 +747,12 @@ class CellularIoTApp(CellularIoT):
 		return hdc1000.readHumidity()
 
 	# Function for reading precipitation
-	def readPrec(self):
+	def readOPTO1(self):
 		return GPIO.input(self.OPTO1)
+
+	# Function for reading precipitations
+	def readOPTO2(self):
+		return GPIO.input(self.OPTO2)
 
 	# Function for reading light resolution	
 	def readLux(self):
